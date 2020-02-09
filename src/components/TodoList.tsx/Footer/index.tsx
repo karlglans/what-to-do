@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Note from '../../../models/Note';
 
 import Naviagation from './Navigation';
+import './index.css';
 
 interface Props {
   notes: Array<Note>;
@@ -17,7 +18,7 @@ const Footer: React.FC<Props> = ({notes, clearCompleated}) => {
   }, [notes]);
 
   return (
-    <div style={{display: 'flex', flexDirection: 'row'}}>
+    <div style={{display: 'flex', flexDirection: 'row'}} className='footer' >
       <span style={{ flex: 1}}>
         {tasksLeft} items left
       </span>

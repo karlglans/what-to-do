@@ -1,0 +1,15 @@
+.footer {
+  padding: 0.5em 1em;
+  color: #555;
+  font-size: 0.8em;
+}
+
+.footer button {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.footer button:hover {
+  text-decoration: underline;
+}
