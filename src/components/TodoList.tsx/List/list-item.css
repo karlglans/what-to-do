@@ -1,0 +1,5 @@
+.todo-list-item {
+  min-height: 50px;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.25em;
+}

@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+import './Input.css';
+
 interface Props {
   addNote(message: string): void;
 }
@@ -15,7 +17,8 @@ const Input: React.FC<Props> = ({ addNote }) => {
   }
 
   return (
-    <input
+    <input 
+      className='todo-input'
       placeholder='What needs to be done?'
       onKeyDown={_handleKeyDown}
       onChange={(event) => setInputText(event.target.value)} 

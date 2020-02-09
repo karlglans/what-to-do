@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './list-item.css';
+
 interface Props {
   key: number;
   id: number;
@@ -10,9 +12,9 @@ interface Props {
 }
 
 const ListItem: React.FC<Props> = ({ ischecked, id, children, handleCheck, removeNote}) => {
-  const style = {display: 'flex', justifyContent: 'space-around'};
+  const style = {display: 'flex', justifyContent: 'space-around', alignItems: 'center'};
   return (
-    <li style={style} >
+    <li style={style} className='todo-list-item'>
       <input type="checkbox"
         style={{flex: 1, marginLeft: 0}}
         name="done"

@@ -1,0 +1,8 @@
+.todo-input {
+  box-sizing: border-box;
+  padding-left: 2em;
+  padding-right: 2em; 
+  min-height: 50px;
+  font-size: 1.2em;
+  border-bottom: 1px solid #ddd;
+}
