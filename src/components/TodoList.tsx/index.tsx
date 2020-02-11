@@ -27,13 +27,6 @@ const TodoList = () => {
     setNotes(notes.filter(note => note.id !== noteId));
   }
 
-  function focusNote(noteId: number) {
-    const noteIdx = notes.findIndex(msg => msg.id === noteId);
-    if (noteIdx !== -1) {
-      setNotes([...notes]);
-    }
-  }
-
   function editNote(noteId: number, message: string) {
     const noteIdx = notes.findIndex(msg => msg.id === noteId);
     if (noteIdx !== -1) {
