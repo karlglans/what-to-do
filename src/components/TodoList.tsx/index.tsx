@@ -27,6 +27,14 @@ const TodoList = () => {
     setNotes(notes.filter(note => note.id !== noteId));
   }
 
+  function editNote(noteId: number, message: string) {
+    const noteIdx = notes.findIndex(msg => msg.id === noteId);
+    if (noteIdx !== -1) {
+      notes[noteIdx].message = message;
+      setNotes([...notes]);
+    }
+  }
+
   function clearCompleated() {
     const uncompleated = notes.filter(note => !note.checked);
     setNotes(uncompleated);
@@ -35,7 +43,7 @@ const TodoList = () => {
   return (
     <div className='todo-list'>
       <Input addNote={addNote} />
-      <List handleCheck={handleCheck} removeNote={removeNote} notes={notes} />
+      <List handleCheck={handleCheck} removeNote={removeNote} editNote={editNote} notes={notes} />
       <Footer notes={notes} clearCompleated={clearCompleated}/>
     </div>
   );

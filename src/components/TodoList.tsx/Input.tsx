@@ -8,7 +8,7 @@ interface Props {
 
 const Input: React.FC<Props> = ({ addNote }) => {
   const [inputText, setInputText] = useState('');
-  function _handleKeyDown(event: any) {
+  function _handleKeyDown(event: any) { // TODO: replace any
     event.preventDefault();
     if (inputText.length > 0) {
       addNote(inputText);

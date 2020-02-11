@@ -13,16 +13,22 @@ interface Props {
   notes: Array<Note>;
   handleCheck(noteId: number): void;
   removeNote(noteId: number): void;
+  editNote(noteId: number, message: string): void;
 }
 
-const TodoList: React.FC<Props> = ({ notes, handleCheck, removeNote}) => {
+const TodoList: React.FC<Props> = ({ notes, handleCheck, removeNote, editNote}) => {
   const [selection, setSelection] = useState(optUnchecked)
+  const [noteInFocus, setNoteInFocus] = useState(-1)
   let location = useLocation();
 
   function doFiler(sel : string, {checked} : Note ) {
     if (sel === optChecked) return checked;
     if (sel === optUnchecked) return !checked;
     return true;
+  }
+
+  function setNoteToFocus(noteId: number) {
+    setNoteInFocus(noteId);
   }
   
   const listItems = notes
@@ -33,9 +39,12 @@ const TodoList: React.FC<Props> = ({ notes, handleCheck, removeNote}) => {
         handleCheck={handleCheck}
         removeNote={removeNote}
         ischecked={note.checked} 
-        id={note.id} >
-        {note.message}
-      </ListItem>
+        id={note.id}
+        message={note.message}
+        editNote={editNote}
+        setNoteToFocus={setNoteToFocus}
+        isInFocus={noteInFocus===note.id}
+        />
     ));
 
   useEffect(() => {
