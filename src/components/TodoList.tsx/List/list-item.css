@@ -2,4 +2,12 @@
   min-height: 50px;
   border-bottom: 1px solid #ddd;
   font-size: 1.25em;
+  padding-right: 1em;
+}
+
+.todo-list-item button {
+  border: none;
+  cursor: pointer;
+  color: #ee0000;
+  background-color: transparent;
 }
