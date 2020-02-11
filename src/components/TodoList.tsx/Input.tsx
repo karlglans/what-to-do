@@ -7,22 +7,22 @@ interface Props {
 }
 
 const Input: React.FC<Props> = ({ addNote }) => {
-  const [inputText, setInputText] = useState("input text");
-
-  function _handleKeyDown(e: any) {
-    if (e.key === 'Enter') {
+  const [inputText, setInputText] = useState('');
+  function _handleKeyDown(event: any) {
+    event.preventDefault();
+    if (inputText.length > 0) {
+      addNote(inputText);
       setInputText('');
-      addNote(e.target.value);
     }
   }
-
   return (
-    <input 
-      className='todo-input'
-      placeholder='What needs to be done?'
-      onKeyDown={_handleKeyDown}
-      onChange={(event) => setInputText(event.target.value)} 
-      style={{width: '100%'}} value={inputText} />
+    <form onSubmit={_handleKeyDown}>
+      <input 
+        className='todo-input'
+        placeholder='What needs to be done?'
+        onChange={(event) => setInputText(event.target.value)} 
+        style={{width: '100%'}} value={inputText} />
+    </form>
   );
 }
 
